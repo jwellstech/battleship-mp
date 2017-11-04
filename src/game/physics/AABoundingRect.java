@@ -25,8 +25,8 @@ public class AABoundingRect extends BoundingShape {
         y = newVal;
     }
     public void updatePosition(float newX, float newY) {
-        this.x = newX;
-        this.y = newY;
+        x = newX;
+        y = newY;
     }
 
     public void movePosition(float x, float y) {

@@ -1,22 +1,18 @@
 package game.gameObjects;
 
-public class Submarine extends ALocatable {
-    private double velocity;
-    private double direction;
+import game.Settings;
+import game.level.LevelObject;
 
-    public Submarine(double initX, double initY) {
-        super(initX, initY);
+public class Submarine extends LevelObject {
+    private static float height = Settings.SUBMARINE_HEIGHT;
+    private static float width  = Settings.SUBMARINE_WIDTH;
+
+    public Submarine(float initX, float initY) {
+        super(initX, initY, height, width);
+    }
+    public void fire() {
+        //TODO: generate torpedo and fire it
     }
 
-    public void move() {
-        setX(getX() + getXVelocity());
-        setY(getY() + getYVelocity());
-    }
-    public double getXVelocity() {
-        return velocity*Math.cos(direction);
-    }
-    public double getYVelocity() {
-        return velocity*Math.sin(direction);
-    }
 
 }
