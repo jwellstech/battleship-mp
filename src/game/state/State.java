@@ -10,4 +10,8 @@ public class State {
     State(Object root) {
         scene = new Scene((Parent) root, Settings.WINDOW_WIDTH, Settings.WINDOW_HEIGHT);
     }
+
+    public void update() {
+
+    }
 }

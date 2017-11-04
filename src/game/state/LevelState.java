@@ -17,6 +17,4 @@ public class LevelState extends State {
             }
         });
     }
-
-
 }
