@@ -12,4 +12,6 @@ public class SingeltonsCreator {
         }
         return playerSubmarine;
     }
+
+//    public static getOrCreateLevelStateFactoryMethod() {}
 }

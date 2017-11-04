@@ -1,5 +1,6 @@
 package game;
 
+import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -34,7 +35,7 @@ public class Game extends Application {
         /*
         - create the background processes
             - game controller
-            - cvreate scene
+            - create scene
         - create scene from factory method
         -
          */
@@ -54,6 +55,16 @@ public class Game extends Application {
 //        root.getChildren().add(btn);
 //        primaryStage.setScene(new Scene(root, 300, 250));
 //        primaryStage.show();
+
+        //composer
+        AnimationTimer timer = new AnimationTimer() {
+            @Override
+            public void handle(long now) {
+//                primaryStage.getScene();
+
+            }
+        };
+        timer.start();
     }
 
 }
