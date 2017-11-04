@@ -4,6 +4,7 @@ import game.gameObjects.Mine;
 import game.gameObjects.Submarine;
 import game.gameObjects.Torpedo;
 import game.physics.AABoundingRect;
+import game.physics.BoundingShape;
 
 import java.util.ArrayList;
 
@@ -88,10 +89,29 @@ public class Level {
         }
     }
     public void explode(Mine mine) {
-        float mineX = mine.getX() + ((AABoundingRect)mine.getBoundingShape()).getWidth()/2;
-        float mineY;
+        float radius = mine.getExplosionRadius();
         for(int i = 0; i < submarines.size(); i++) {
-
+            if(checkCollisionInRadius((AABoundingRect)submarines.get(i).getBoundingShape(), mine)) {
+                submarines.remove(i);
+                i--;
+            }
         }
+    }
+    public boolean checkCollisionInRadius(AABoundingRect rect, Mine mine) {
+        float mineX = mine.getX() + ((AABoundingRect)mine.getBoundingShape()).getWidth()/2;
+        float mineY = mine.getX() + ((AABoundingRect)mine.getBoundingShape()).getWidth()/2;
+        if(Math.hypot(rect.getX() - mineX, rect.getY() - mineY ) <= mine.getExplosionRadius()) {
+            return true;
+        }
+        if(Math.hypot(rect.getX() + rect.getWidth() - mineX, rect.getY() - mineY ) <= mine.getExplosionRadius()) {
+            return true;
+        }
+        if(Math.hypot(rect.getX() - mineX, rect.getY() + rect.getHeight() - mineY ) <= mine.getExplosionRadius()) {
+            return true;
+        }
+        if(Math.hypot(rect.getX() + rect.getWidth() - mineX, rect.getY() + rect.getHeight() - mineY ) <= mine.getExplosionRadius()) {
+            return true;
+        }
+        return false;
     }
 }

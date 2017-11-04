@@ -3,11 +3,13 @@ package game;
 import game.gameObjects.Submarine;
 import game.level.Level;
 import game.state.LevelState;
+import game.state.StateComposer;
 
 public class SingletonsCreator {
     static Submarine playerSubmarine;
     static LevelState levelState;
     static Level level;
+    static StateComposer composer;
 
     public static Submarine getOrCreatePlayerSubmarineFactoryMethod() {
         if(playerSubmarine == null) {
@@ -28,6 +30,12 @@ public class SingletonsCreator {
             level = new Level();
         }
         return level;
+    }
+    public static StateComposer getOrCreateStateComposerFactoryMethod() {
+        if(composer == null) {
+            composer = new StateComposer();
+        }
+        return composer;
     }
 
 }

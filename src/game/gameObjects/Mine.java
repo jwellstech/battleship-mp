@@ -10,9 +10,14 @@ public class Mine extends LevelObject {
 
     private static float width  = Settings.MINE_WIDTH;
     private static float height = Settings.MINE_HEIGHT;
+
     public Mine(float initX, float initY) {
         super(initX, initY, width, height);
         level.registerLevelObject(this);
     }
+    public float getExplosionRadius() {
+        return Settings.EXPLOSION_RADIUS;
+    }
+
 
 }

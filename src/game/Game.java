@@ -57,7 +57,7 @@ public class Game extends Application {
 //        primaryStage.setScene(new Scene(root, 300, 250));
 //        primaryStage.show();
 
-        StateComposer composer = new StateComposer();
+        StateComposer composer = SingletonsCreator.getOrCreateStateComposerFactoryMethod();
         primaryStage.setScene(composer.getActiveState().scene);
         primaryStage.show();
         AnimationTimer timer = new AnimationTimer() {
