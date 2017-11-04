@@ -1,3 +1,22 @@
+- UI
+    - [ ] Player submarine needs image
+    - [ ] Sonar image
+    - [ ] Sonar found images
+    - [ ] Buttons for other things
+- AI
+    - [ ] Makes enemy ships
+    - [ ] Enemy ships move towards you
+    - [ ] Various levels of detection
+    - [ ] Enemy ships shoot torpedoes at you
+- Player
+    - [ ]
+- Gameplay
+    - [ ] When LevelObjects collide they do damage to each other on collision ONLY
+    - Torpedoes
+        - [ ] Delete themselves upon collision
+        - [ ] Move forward in the direction aimed
+
+
 - Map
 	- 2D
 	- All visuals come with a risk
@@ -9,7 +28,7 @@
 		- Must rotate in order to change direction
 		- Moving creates sound
 		- Player knows their own lat/long
-	- Torpedos
+	- Torpedoes
 		- Only shoot forward
 		- Take time to reload
 		- Create a sound the enemy can hear
