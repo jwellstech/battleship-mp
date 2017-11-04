@@ -7,7 +7,7 @@ public abstract class LevelObject {
     //protected float x;
     //protected float y;
     protected BoundingShape boundingShape;
-    public String type;
+    public    String        type;
 
     //starts stationary
     protected float    velocity;
