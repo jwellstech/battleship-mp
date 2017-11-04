@@ -16,9 +16,11 @@ public class Torpedo extends LevelObject {
 
     public Torpedo(float initX, float initY) {
         super(initX, initY, width, height);
-        level.registerLevelObject(this, false);
+        level.registerLevelObject(this);
     }
 
-
-
+    @Override
+    public int getDamage() {
+        return damage;
+    }
 }

@@ -24,6 +24,12 @@ public class AABoundingRect extends BoundingShape {
     public void setY(float newVal) {
         y = newVal;
     }
+    public float getWidth() {
+        return width;
+    }
+    public float getHeight() {
+        return height;
+    }
     public void updatePosition(float newX, float newY) {
         x = newX;
         y = newY;

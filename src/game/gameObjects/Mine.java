@@ -12,7 +12,7 @@ public class Mine extends LevelObject {
     private static float height = Settings.MINE_HEIGHT;
     public Mine(float initX, float initY) {
         super(initX, initY, width, height);
-        level.registerLevelObject(this, true);
+        level.registerLevelObject(this);
     }
 
 }

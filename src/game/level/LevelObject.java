@@ -20,6 +20,9 @@ public abstract class LevelObject {
         //create the bounding rect for the object
         boundingShape = new AABoundingRect(newX, newY, newWidth, newHeight);
     }
+    public BoundingShape getBoundingShape() {
+        return boundingShape;
+    }
     public float getX(){
         return boundingShape.getX();
     }
@@ -59,5 +62,9 @@ public abstract class LevelObject {
     }
     public int getDamage() {
         return damage;
+    }
+    public void move(long delta) {
+        setX(getX() + (getXVelocity() * delta));
+        setY(getY() + (getYVelocity() * delta));
     }
 }

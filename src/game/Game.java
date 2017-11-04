@@ -1,5 +1,6 @@
 package game;
 
+import game.state.StateComposer;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -56,11 +57,13 @@ public class Game extends Application {
 //        primaryStage.setScene(new Scene(root, 300, 250));
 //        primaryStage.show();
 
-        //composer
+        StateComposer composer = new StateComposer();
+        primaryStage.setScene(composer.getActiveState().scene);
+        primaryStage.show();
         AnimationTimer timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
-//                primaryStage.getScene();
+                composer.update(now);
 
             }
         };

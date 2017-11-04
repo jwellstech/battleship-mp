@@ -12,7 +12,7 @@ public class Submarine extends LevelObject {
 
     public Submarine(float initX, float initY) {
         super(initX, initY, height, width);
-        level.registerLevelObject(this, true);
+        level.registerLevelObject(this);
     }
     public void fire() {
         //TODO: generate torpedo and fire it
