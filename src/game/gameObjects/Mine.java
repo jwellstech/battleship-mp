@@ -1,6 +1,4 @@
-package gameObjects;
-
-import java.awt.*;
+package game.gameObjects;
 
 public class Mine extends ALocatable {
 

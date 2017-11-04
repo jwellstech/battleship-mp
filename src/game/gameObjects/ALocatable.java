@@ -1,6 +1,4 @@
-package gameObjects;
-
-import java.awt.*;
+package game.gameObjects;
 
 public class ALocatable implements Locatable {
     private double x, y;

@@ -1,6 +1,4 @@
-package gameObjects;
-
-import java.awt.*;
+package game.gameObjects;
 
 public class Submarine extends ALocatable {
     private double velocity;
@@ -10,11 +8,15 @@ public class Submarine extends ALocatable {
         super(initX, initY);
     }
 
-    public void move(int deltaX, int deltaY) {
-        setX(getX() + deltaX);
-        setY(getY() + deltaY);
+    public void move() {
+        setX(getX() + getXVelocity());
+        setY(getY() + getYVelocity());
     }
-    private double getXVelocity() {
+    public double getXVelocity() {
         return velocity*Math.cos(direction);
     }
+    public double getYVelocity() {
+        return velocity*Math.sin(direction);
+    }
+
 }
