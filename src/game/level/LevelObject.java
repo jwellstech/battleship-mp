@@ -13,6 +13,8 @@ public abstract class LevelObject {
     private float    velocity;
     //default orientation
     private float    direction  = (float)Math.PI/2;
+    private        int   damage = 0;
+
 
     public LevelObject(float newX, float newY, float newWidth, float newHeight) {
         //create the bounding rect for the object
@@ -54,5 +56,8 @@ public abstract class LevelObject {
     //rotate by some number of degrees
     public void rotate(float degrees) {
         setDirection(getDirection() + (float)Math.toRadians(degrees));
+    }
+    public int getDamage() {
+        return damage;
     }
 }

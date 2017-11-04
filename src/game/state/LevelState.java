@@ -1,15 +1,17 @@
 package game.state;
 
+import game.SingletonsCreator;
 import game.level.Level;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.input.KeyEvent;
 
+
 public class LevelState extends State {
 
     static Group UI;
-//    static Level level = SingletonsCreator.getOrCreateLevelFactoryMethod();
-    LevelState() {
+    static Level level = SingletonsCreator.getOrCreateLevelFactoryMethod();
+    public LevelState() {
         super(UI);
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override

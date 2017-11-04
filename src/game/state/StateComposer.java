@@ -1,7 +1,5 @@
 package game.state;
 
-import game.SingeltonsCreator;
-
 public class StateComposer {
-//    static LevelState = SingeltonsCreator.getOrCreatLevelStateFactoryMethod();
+//    static LevelState = SingletonsCreator.getOrCreatLevelStateFactoryMethod();
 }

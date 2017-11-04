@@ -1,11 +1,13 @@
 package game.gameObjects;
 
 import game.Settings;
+import game.SingletonsCreator;
+import game.level.Level;
 import game.level.LevelObject;
 
-import java.util.Set;
 
 public class Torpedo extends LevelObject {
+    private static Level level      = SingletonsCreator.getOrCreateLevelFactoryMethod();
     private static float width      = Settings.TORPEDO_WIDTH;
     private static float height     = Settings.TORPEDO_HEIGHT;
     private static float velocity   = Settings.TORPEDO_VELOCITY;
@@ -14,10 +16,9 @@ public class Torpedo extends LevelObject {
 
     public Torpedo(float initX, float initY) {
         super(initX, initY, width, height);
+        level.registerLevelObject(this, false);
     }
 
-    public int getDamage() {
-        return damage;
-    }
+
 
 }

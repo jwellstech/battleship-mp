@@ -2,9 +2,11 @@ package game;
 
 import game.gameObjects.Submarine;
 import game.level.Level;
+import game.state.LevelState;
 
-public class SingeltonsCreator {
+public class SingletonsCreator {
     static Submarine playerSubmarine;
+    static LevelState levelState;
     static Level level;
 
     public static Submarine getOrCreatePlayerSubmarineFactoryMethod() {
@@ -15,7 +17,12 @@ public class SingeltonsCreator {
         return playerSubmarine;
     }
 
-//    public static getOrCreateLevelStateFactoryMethod() {}
+    public static LevelState getOrCreateLevelStateFactoryMethod() {
+        if(levelState == null) {
+            levelState = new LevelState();
+        }
+        return levelState;
+    }
     public static Level getOrCreateLevelFactoryMethod() {
         if(level == null) {
             level = new Level();
