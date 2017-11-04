@@ -10,9 +10,9 @@ public abstract class LevelObject {
     public    String        type;
 
     //starts stationary
-    protected float    velocity;
+    private float    velocity;
     //default orientation
-    protected float    direction  = (float)Math.PI/2;
+    private float    direction  = (float)Math.PI/2;
 
     public LevelObject(float newX, float newY, float newWidth, float newHeight) {
         //create the bounding rect for the object
