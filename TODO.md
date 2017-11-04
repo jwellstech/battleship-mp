@@ -1,0 +1,37 @@
+- Game
+    - [ ] Multiplayer
+        - [ ] Chat
+        - [ ] When both players leave a game the session is deleted
+    - [ ] Base game
+        - [ ] Arrays for game map
+        - [ ] Various ships
+    - [ ] Singleplayer AI
+    - [ ]
+- UI
+    - [ ]
+
+- Map
+	- 2D
+	- All visuals come with a risk
+	- Primary focus is on audio
+- Player
+	- Movement
+		- 2D XY
+		- Only moves forward
+		- Must rotate in order to change direction
+		- Moving creates sound
+		- Player knows their own lat/long
+	- Torpedos
+		- Only shoot forward
+		- Take time to reload
+		- Create a sound the enemy can hear
+	- Sonar
+		- 
+	- 
+- Enemies
+	- AI subs
+		- Can move
+	- Mines
+		- Mines can't blow up mines
+		- Randomly spawned
+		- Density becomes infinite at the edge of the map
