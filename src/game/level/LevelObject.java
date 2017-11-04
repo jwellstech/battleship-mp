@@ -6,8 +6,8 @@ import game.physics.BoundingShape;
 public abstract class LevelObject {
     //protected float x;
     //protected float y;
-    private BoundingShape boundingShape;
-    public String type;
+    protected BoundingShape boundingShape;
+    public    String        type;
 
     //starts stationary
     private float    velocity;
@@ -54,9 +54,5 @@ public abstract class LevelObject {
     //rotate by some number of degrees
     public void rotate(float degrees) {
         setDirection(getDirection() + (float)Math.toRadians(degrees));
-    }
-    public void move(int delta) {
-        setX(getX() + (getXVelocity()*delta));
-        setY(getY() + (getYVelocity()*delta));
     }
 }
