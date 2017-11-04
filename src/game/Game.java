@@ -19,7 +19,6 @@ public class Game extends Application {
         /*
         - create the background processes
             - game controller
-            - cvreate scene
         - create scene from factory method
         -
          */

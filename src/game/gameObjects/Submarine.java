@@ -12,6 +12,8 @@ public class Submarine extends LevelObject {
     }
     public void fire() {
         //TODO: generate torpedo and fire it
+        Torpedo torpedo = new Torpedo(getX(), getY());
+
     }
 
 
