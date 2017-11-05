@@ -80,6 +80,7 @@ public class Game extends Application {
                 switch(event.getCode()) {
                     case UP:
                         levelState.getPlayerSub().setAccelerate(true);
+                        levelSceneController.moveDots(levelState.getPlayerSub().getXVelocity(), levelState.getPlayerSub().getYVelocity());
                         break;
                     case LEFT:
                         levelState.getPlayerSub().doRotate(1);

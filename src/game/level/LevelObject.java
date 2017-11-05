@@ -43,7 +43,7 @@ public abstract class LevelObject {
         velocity = f;
     }
     public float getVelocity() {
-        return velocity/10;
+        return velocity;
     }
     public float getYVelocity() {
         return (float)(getVelocity()*Math.sin(direction));

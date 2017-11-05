@@ -44,6 +44,9 @@ public class LevelSceneController {
     private Button pauseButton;
 
     @FXML
+    private ImageView dotMatrix;
+
+    @FXML
     void pauseGame(ActionEvent event) {
         Stage levelStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         levelStage.setScene(Game.PauseMenu);
@@ -92,6 +95,15 @@ public class LevelSceneController {
         ft.setCycleCount(2);
         ft.setAutoReverse(true);
         ft.play();
+    }
+
+    //TODO dots
+    //- Dots move opposite direction of ship
+    //- Dots are infinite
+    //dots are 35 pixels apart
+    public void moveDots(float xVel, float yVel) {
+        dotMatrix.setX((dotMatrix.getX() - xVel) % 35);
+        dotMatrix.setY((dotMatrix.getY() + yVel) % 35);
     }
 
 }
