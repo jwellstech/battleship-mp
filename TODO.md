@@ -15,6 +15,10 @@
     - Torpedoes
         - [ ] Delete themselves upon collision
         - [ ] Move forward in the direction aimed
+    - [ ] Need ping functionality
+    - [ ] generate enemies
+    - [ ] generate low density and high density mine fields
+    - [ ] shooting functionality
 
 
 - Map

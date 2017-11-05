@@ -7,11 +7,13 @@ import javafx.scene.Scene;
 public class State {
     public Scene scene;
 
-    State(Object root) {
-        scene = new Scene((Parent) root, Settings.WINDOW_WIDTH, Settings.WINDOW_HEIGHT);
+    State() {
     }
 
-    public void update() {
-
+    public void setScene(Scene newScene) {
+        scene = newScene;
+    }
+    public Scene getScene() {
+        return scene;
     }
 }

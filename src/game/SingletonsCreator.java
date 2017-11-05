@@ -5,13 +5,15 @@ import game.level.Level;
 import game.sceneControllers.LevelSceneController;
 import game.state.LevelState;
 import game.state.StateComposer;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 
 public class SingletonsCreator {
     static Submarine playerSubmarine;
     static LevelState levelState;
     static Level level;
     static StateComposer composer;
-//    static LevelSceneController levelSceneController;
 
     public static Submarine getOrCreatePlayerSubmarineFactoryMethod() {
         if(playerSubmarine == null) {
@@ -38,6 +40,16 @@ public class SingletonsCreator {
             composer = new StateComposer();
         }
         return composer;
+    }
+    public static void resetLevelComponents() {
+        level = null;
+        playerSubmarine = null;
+        levelState = null;
+        composer = null;
+//        getOrCreateLevelStateFactoryMethod();
+//        getOrCreateLevelFactoryMethod();
+//        getOrCreatePlayerSubmarineFactoryMethod();
+//        getOrCreateStateComposerFactoryMethod();
     }
 
 }
