@@ -6,8 +6,8 @@ public class Settings {
     public static final float WINDOW_HEIGHT = 600;
     public static final float WINDOW_WIDTH = 900;
 
-    public static final int LEVEL_RADIUS = 1000;
-    public static final int LEVEL_MINE_DENSITY = 50;
+    public static final int LEVEL_RADIUS = 100;
+    public static final int LEVEL_MINE_DENSITY = 5;
     //levelobject settings
     public static final float ROTATION_SPEED = 1;
     //submarine settings
@@ -22,7 +22,7 @@ public class Settings {
     public static final float TORPEDO_HEIGHT    = 10;
     public static final float TORPEDO_WIDTH     = 10;
     public static final int   TORPEDO_DAMAGE    = 0;
-    public static final float TORPEDO_VELOCITY  = 0;
+    public static final float TORPEDO_VELOCITY  = 10;
     //mine settings
     public static final float MINE_HEIGHT       = 20;
     public static final float MINE_WIDTH        = 20;
