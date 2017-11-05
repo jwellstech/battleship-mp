@@ -55,7 +55,7 @@
             <Image url="@img/sector_1.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="subHeadingIcon" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" x="576.0" y="296.0">
+      <ImageView id="playerSubImage" fx:id="playerSubImage" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" x="576.0" y="296.0">
          <image>
             <Image url="@img/sub.png" />
          </image>

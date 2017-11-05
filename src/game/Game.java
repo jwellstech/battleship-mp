@@ -34,6 +34,8 @@ public class Game extends Application {
     public static Scene StartMenu;
     public static Scene PauseMenu;
 
+    static LevelSceneController levelSceneController;
+
     public static void main(String[] args) {
         launch(args);
     }
@@ -72,9 +74,12 @@ public class Game extends Application {
         StartMenu = new Scene(rt, 1280, 720);
         rt = FXMLLoader.load(getClass().getResource("PauseMenuScene.fxml"));
         PauseMenu = new Scene(rt, 1280, 720);
-        rt = FXMLLoader.load(getClass().getResource("LevelScene.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("LevelScene.fxml"));
+        rt = loader.load();
+        levelSceneController = loader.getController();
         LevelScene = new Scene(rt, 1280, 720);
         LevelState levelState = SingletonsCreator.getOrCreateLevelStateFactoryMethod();
+        levelState.setScene(LevelScene);
         LevelScene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
@@ -94,6 +99,8 @@ public class Game extends Application {
                         primaryStage.setScene(Game.PauseMenu);
 //                        primaryStage.show();
                 }
+                double rotate = - Math.toDegrees(levelState.getPlayerSub().getDirection()) + 90;
+                levelSceneController.playerSubImage.setRotate(rotate);
             }
         });
         levelState.getScene().setOnKeyReleased(new EventHandler<KeyEvent>() {
