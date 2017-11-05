@@ -73,7 +73,6 @@ public class Game extends Application {
         LevelScene = new Scene(rt, 1280, 720);
         LevelState levelState = SingletonsCreator.getOrCreateLevelStateFactoryMethod();
         levelState.setScene(LevelScene);
-
         LevelScene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
@@ -92,12 +91,14 @@ public class Game extends Application {
                         primaryStage.setScene(Game.PauseMenu);
                         break;
                     case SPACE:
-                        levelState.getPlayerSub().ping(SingletonsCreator.getOrCreateLevelFactoryMethod().getLevelObjects());
-                        levelSceneController.sonarFind(levelState.getPlayerSub().getFoundOctants());
-                        levelState.getPlayerSub().resetFoundOctants();
+                        if(levelState.getPlayerSub().getPingCoolDownTimer() == 0) {
+                            levelState.getPlayerSub().ping(SingletonsCreator.getOrCreateLevelFactoryMethod().getLevelObjects());
+                            levelSceneController.sonarFind(levelState.getPlayerSub().getFoundOctants());
+                            levelState.getPlayerSub().resetFoundOctants();
+                        }
                         break;
                     case F:
-                        if(levelState.getPlayerSub().getCooldown() == 0){
+                        if(levelState.getPlayerSub().getTorpedoCoolDownTimer() == 0){
                             levelState.getPlayerSub().fire();
                         }
                 }

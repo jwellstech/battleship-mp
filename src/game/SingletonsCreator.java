@@ -4,6 +4,7 @@ import game.gameObjects.Mine;
 import game.gameObjects.Submarine;
 import game.level.Level;
 import game.sceneControllers.LevelSceneController;
+import game.sound.JOALSoundObject;
 import game.state.LevelState;
 import game.state.StateComposer;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +16,7 @@ public class SingletonsCreator {
     static LevelState levelState;
     static Level level;
     static StateComposer composer;
+    static JOALSoundObject listener;
 
     public static Submarine getOrCreatePlayerSubmarineFactoryMethod() {
         if(playerSubmarine == null) {
@@ -42,6 +44,12 @@ public class SingletonsCreator {
             composer = new StateComposer();
         }
         return composer;
+    }
+    public static JOALSoundObject getOrCreateJOALSoundObjectFactoryMethod() {
+        if(listener == null) {
+            listener = new JOALSoundObject();
+        }
+        return listener;
     }
 //    public static void resetLevelComponents() {
 //        level = null;
