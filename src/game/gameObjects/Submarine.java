@@ -101,7 +101,7 @@ public class Submarine extends LevelObject {
             foundOctants[((int)((angle - (angle % (Math.PI/4))) / (Math.PI/4)))%8] = true;
         }
     }
-    public void resetPingedOctants() {
+    public void resetFoundOctants() {
         for(int i = 0; i < foundOctants.length; i++) {
             foundOctants[i] = false;
         }

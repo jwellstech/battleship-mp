@@ -92,6 +92,8 @@ public class Game extends Application {
                         break;
                     case SPACE:
                         levelState.getPlayerSub().ping(SingletonsCreator.getOrCreateLevelFactoryMethod().getLevelObjects());
+                        levelSceneController.sonarFind(levelState.getPlayerSub().getFoundOctants());
+                        levelState.getPlayerSub().resetFoundOctants();
                         break;
                     case F:
                         if(levelState.getPlayerSub().getCooldown() == 0){
