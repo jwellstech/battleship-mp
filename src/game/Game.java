@@ -1,6 +1,7 @@
 package game;
 
 import game.sceneControllers.LevelSceneController;
+import game.state.LevelState;
 import game.state.StateComposer;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
@@ -73,6 +74,7 @@ public class Game extends Application {
         PauseMenu = new Scene(rt, 1280, 720);
         rt = FXMLLoader.load(getClass().getResource("LevelScene.fxml"));
         LevelScene = new Scene(rt, 1280, 720);
+        LevelState levelState = SingletonsCreator.getOrCreateLevelStateFactoryMethod();
         LevelScene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
