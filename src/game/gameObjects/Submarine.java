@@ -49,7 +49,7 @@ public class Submarine extends LevelObject {
             }
         }
 
-        System.out.println("Player pos: " + getX() + ", " + getY() + ", " + getDirection());
+//        System.out.println("Player pos: " + getX() + ", " + getY() + ", " + getDirection());
         super.update(delta);
     }
     public void setAccelerate(boolean newVal) {
