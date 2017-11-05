@@ -68,11 +68,11 @@ public class Game extends Application {
         StateComposer composer = SingletonsCreator.getOrCreateStateComposerFactoryMethod();
 
         Parent rt = FXMLLoader.load(getClass().getResource("StartMenuScene.fxml"));
-        StartMenu = new Scene(rt, 900, 600);
+        StartMenu = new Scene(rt, 1280, 720);
         rt = FXMLLoader.load(getClass().getResource("PauseMenuScene.fxml"));
-        PauseMenu = new Scene(rt, 900, 600);
+        PauseMenu = new Scene(rt, 1280, 720);
         rt = FXMLLoader.load(getClass().getResource("LevelScene.fxml"));
-        LevelScene = new Scene(rt, 900, 600);
+        LevelScene = new Scene(rt, 1280, 720);
         LevelScene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
