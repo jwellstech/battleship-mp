@@ -30,13 +30,13 @@ public class StateComposer {
         time = now;
     }
     public void update(long now) {
-        long delta = (now-time)/1000;
+        long delta = (now-time)/1000000;
         if(running) {
             for(Submarine submarine: level.getSubmarines()) {
-                submarine.move(delta);
+                submarine.update(delta);
             }
             for(Torpedo torpedo: level.getTorpedoes()) {
-                torpedo.move(delta);
+                torpedo.update(delta);
             }
         }
         level.checkCollision();

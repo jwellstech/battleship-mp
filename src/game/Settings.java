@@ -9,6 +9,9 @@ public class Settings {
     //submarine settings
     public static final float SUBMARINE_HEIGHT  = 10;
     public static final float SUBMARINE_WIDTH   = 10;
+    public static final float SUBMARINE_ACCELERATION = 1;
+    public static final float SUBMARINE_DECELERATION = 0.5f;
+    public static final float SUBMARINE_MAX_VELOCITY = 50;
     //torpedos settings
     public static final float TORPEDO_HEIGHT    = 10;
     public static final float TORPEDO_WIDTH     = 10;

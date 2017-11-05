@@ -22,10 +22,10 @@ public class Level {
         if(newObject instanceof Submarine) {
             submarines.add((Submarine) newObject);
         }
-        if(newObject instanceof Submarine) {
+        if(newObject instanceof Torpedo) {
             torpedoes.add((Torpedo) newObject);
         }
-        if(newObject instanceof Submarine) {
+        if(newObject instanceof Mine) {
             mines.add((Mine) newObject);
         }
     }

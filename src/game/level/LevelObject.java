@@ -42,13 +42,13 @@ public abstract class LevelObject {
         velocity = f;
     }
     public float getVelocity() {
-        return velocity;
+        return velocity/10;
     }
     public float getYVelocity() {
-        return (float)(velocity*Math.sin(direction));
+        return (float)(getVelocity()*Math.sin(direction));
     }
     public float getXVelocity(){
-        return (float)(velocity*Math.cos(direction));
+        return (float)(getVelocity()*Math.cos(direction));
     }
     public float getDirection() {
         return direction;
@@ -64,7 +64,10 @@ public abstract class LevelObject {
         return damage;
     }
     public void move(long delta) {
-        setX(getX() + (getXVelocity() * delta));
-        setY(getY() + (getYVelocity() * delta));
+        setX(getX() + (getXVelocity() /** delta*/));
+        setY(getY() + (getYVelocity() /** delta*/));
+    }
+    public void update(long delta) {
+        move(delta);
     }
 }
