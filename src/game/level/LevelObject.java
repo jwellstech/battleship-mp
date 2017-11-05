@@ -98,4 +98,8 @@ public abstract class LevelObject {
         }
         return false;
     }
+    public void doCollision(LevelObject collidedWith) {
+        //add health here?
+        System.out.println(getClass().getName() + "collided with" + collidedWith.getClass().getName());
+    }
 }

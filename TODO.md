@@ -13,12 +13,12 @@
 - Gameplay
     - [ ] When LevelObjects collide they do damage to each other on collision ONLY
     - Torpedoes
-        - [ ] Delete themselves upon collision
-        - [ ] Move forward in the direction aimed
-    - [ ] Need ping functionality
+        - [x] Delete themselves upon collision
+        - [x] Move forward in the direction aimed
+    - [x] Need ping functionality
     - [ ] generate enemies
-    - [ ] generate low density and high density mine fields
-    - [ ] shooting functionality
+    - [x] generate low density mire fields
+    - [ ] generate high density mine fields
 
 
 - Map

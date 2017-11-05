@@ -26,7 +26,6 @@ public class Submarine extends LevelObject {
         ping(level.getLevelObjects());
     }
     public void fire() {
-        //TODO: generate torpedo and fire it
         Torpedo torpedo = new Torpedo(getX(), getY());
         torpedo.setDirection(getDirection());
         torpedo.setLauncher(this);

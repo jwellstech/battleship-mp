@@ -65,8 +65,7 @@ public class Level {
             boolean cont = true;
             while (cont && j < submarines.size()) {
                 if(submarines.get(i).getBoundingShape().checkCollision(submarines.get(j).getBoundingShape())) {
-                    submarines.remove(j);
-                    submarines.remove(i);
+                    subOnSubCollision(submarines.get(i), submarines.get(j));
                     i--;
                     cont = false;
                 }
@@ -76,8 +75,7 @@ public class Level {
             while(cont && j < torpedoes.size()) {
                 if(submarines.get(i).getBoundingShape().checkCollision(torpedoes.get(j).getBoundingShape()) &&
                         !submarines.get(i).getBoundingShape().checkCollision(torpedoes.get(j).getLauncher().getBoundingShape())) {
-                    submarines.remove(i);
-                    torpedoes.remove(j);
+                    subOnTorpedoCollision(submarines.get(i), torpedoes.get(j));
                     i--;
                     cont = false;
                 }
@@ -86,9 +84,7 @@ public class Level {
             j = 0;
             while(cont && j < mines.size()) {
                 if(submarines.get(i).getBoundingShape().checkCollision(mines.get(j).getBoundingShape())) {
-                    submarines.remove(i);
-                    explode(mines.get(j));
-                    mines.remove(j);
+                    subOnMineCollision(submarines.get(i), mines.get(j));
                     i--;
                     cont = false;
                 }
@@ -100,9 +96,7 @@ public class Level {
             boolean cont = true;
             while(cont && j < mines.size()) {
                 if(torpedoes.get(i).getBoundingShape().checkCollision(mines.get(j).getBoundingShape())) {
-                    torpedoes.remove(i);
-                    explode(mines.get(j));
-                    mines.remove(j);
+                    torpedoOnMineCollision(torpedoes.get(i), mines.get(j));
                     i--;
                     cont = false;
                 }
@@ -118,6 +112,33 @@ public class Level {
                 i--;
             }
         }
+    }
+    public void subOnSubCollision(Submarine sub1, Submarine sub2) {
+        sub1.doCollision(sub2);
+        sub2.doCollision(sub1);
+        submarines.remove(sub1);
+        submarines.remove(sub2);
+    }
+    public void subOnTorpedoCollision(Submarine sub, Torpedo torp) {
+        sub.doCollision(torp);
+        torp.doCollision(sub);
+        submarines.remove(sub);
+        torpedoes.remove(torp);
+    }
+    public void subOnMineCollision(Submarine sub, Mine mine) {
+        sub.doCollision(mine);
+        mine.doCollision(sub);
+        explode(mine);
+        submarines.remove(sub);
+        mines.remove(mine);
+
+    }
+    public void torpedoOnMineCollision(Torpedo torp, Mine mine) {
+        torp.doCollision(mine);
+        mine.doCollision(torp);
+        torpedoes.remove(torp);
+        explode(mine);
+        mines.remove(mine);
     }
 //    public boolean checkCollisionInRadius(AABoundingRect rect, Mine mine) {
 //        float mineX = mine.getX() + ((AABoundingRect)mine.getBoundingShape()).getWidth()/2;
