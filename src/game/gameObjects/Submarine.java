@@ -17,11 +17,13 @@ public class Submarine extends LevelObject {
     private static float deceleration  = Settings.SUBMARINE_DECELERATION;
     private static boolean accelerate = false;
     private static float coolDown = 0;
+    private boolean[] foundOctants = new boolean[8];
 
 
     public Submarine(float initX, float initY) {
         super(initX, initY, height, width);
         level.registerLevelObject(this);
+        ping(level.getLevelObjects());
     }
     public void fire() {
         //TODO: generate torpedo and fire it
@@ -74,14 +76,35 @@ public class Submarine extends LevelObject {
     }
 
     public void ping(ArrayList<LevelObject> objects) {
-        float x = getX() + (((AABoundingRect) getBoundingShape()).getWidth() / 2);
-        float y = getY() + (((AABoundingRect) getBoundingShape()).getHeight() / 2);
-
-
         for (int i = 0; i < objects.size(); i++) {
-            if(checkCollisionInRadius((AABoundingRect)objects.get(i).getBoundingShape(), Settings.PING_RADIUS)) {
+            LevelObject lo = objects.get(i);
+            if (objects.get(i) != this && checkCollisionInRadius((AABoundingRect) lo.getBoundingShape(), Settings.PING_RADIUS)) {
                 System.out.println("Found something!");
+                float loX = lo.getX() + ((AABoundingRect) lo.getBoundingShape()).getWidth();
+                float loY = lo.getY() + ((AABoundingRect) lo.getBoundingShape()).getHeight();
+                float subX = getX() + ((AABoundingRect) getBoundingShape()).getWidth();
+                float subY = getY() + ((AABoundingRect) getBoundingShape()).getHeight();
+                anglePingedAt((float) Math.tan((loY - subY) / (loX - subX)));
             }
+            //System.out.println("Octants: " + foundOctants);
         }
     }
+    public boolean[] getFoundOctants() {
+        return foundOctants;
+    }
+    public void anglePingedAt(float angle) {
+        if(angle < 0) {
+            angle = Math.abs(angle);
+            foundOctants[7 - ((int)((angle - (angle % (Math.PI/4))) / (Math.PI/4)))%8] = true;
+        }
+        else {
+            foundOctants[((int)((angle - (angle % (Math.PI/4))) / (Math.PI/4)))%8] = true;
+        }
+    }
+    public void resetPingedOctants() {
+        for(int i = 0; i < foundOctants.length; i++) {
+            foundOctants[i] = false;
+        }
+    }
+
 }

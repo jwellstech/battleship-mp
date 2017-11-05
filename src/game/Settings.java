@@ -17,7 +17,7 @@ public class Settings {
     public static final float SUBMARINE_DECELERATION = 0.5f;
     public static final float SUBMARINE_MAX_VELOCITY = 50;
     public static final float SUBMARINE_COOLDOWN    = 5000;
-    public static final float PING_RADIUS           = 50;
+    public static final float PING_RADIUS           = 5000;
     //torpedos settings
     public static final float TORPEDO_HEIGHT    = 10;
     public static final float TORPEDO_WIDTH     = 10;
