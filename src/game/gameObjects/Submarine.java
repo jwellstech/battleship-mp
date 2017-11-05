@@ -9,6 +9,7 @@ import game.sound.JOALSoundObject;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class Submarine extends LevelObject {
@@ -28,26 +29,19 @@ public class Submarine extends LevelObject {
 
 
     private boolean[] foundOctants = new boolean[8];
-    String musicFile;      // For example
-
-    Media sound;
-    MediaPlayer mediaPlayer;
+//    String musicFile;      // For example
+//
+//    Media sound;
+//    MediaPlayer mediaPlayer;
 
 
     public Submarine(float initX, float initY) {
         super(initX, initY, height, width);
-        System.out.println("test1");
 //        musicFile = "resources/sfx/ping.mp3";
 //        sound = new Media(new File(musicFile).toURI().toString());
 //        mediaPlayer = new MediaPlayer(sound);
-
-        System.out.println("test2");
         level.registerLevelObject(this);
-
-        System.out.println("test3");
         initListener();
-
-        System.out.println("test4");
     }
     public void initListener() {
         listener = SingletonsCreator.getOrCreateJOALSoundObjectFactoryMethod();
@@ -64,7 +58,7 @@ public class Submarine extends LevelObject {
         return pingCoolDownTimer;
     }
     public void setPingCoolDownTimer(float newVal) {
-        torpedoCoolDownTimer = newVal;
+        pingCoolDownTimer = newVal;
     }
     public float getTorpedoCoolDownTimer() {
         return torpedoCoolDownTimer;
@@ -111,7 +105,6 @@ public class Submarine extends LevelObject {
     }
 
     public void ping(ArrayList<LevelObject> objects) {
-        setPingCoolDownTimer(Settings.SUBMARINE_PING_COOLDOWN);
         for (int i = 0; i < objects.size(); i++) {
             LevelObject lo = objects.get(i);
             if (objects.get(i) != this && checkCollisionInRadius((AABoundingRect) lo.getBoundingShape(), Settings.PING_RADIUS)) {
@@ -124,8 +117,10 @@ public class Submarine extends LevelObject {
             }
             //System.out.println("Octants: " + foundOctants);
         }
+//        playMedia();
         listener.load(sound_source, false);
         listener.play(sound_source);
+        setPingCoolDownTimer(Settings.SUBMARINE_PING_COOLDOWN);
     }
     public boolean[] getFoundOctants() {
         return foundOctants;
@@ -144,9 +139,9 @@ public class Submarine extends LevelObject {
             foundOctants[i] = false;
         }
     }
-    public void playMedia() {
-        new MediaPlayer(sound).play();
-    }
+//    public void playMedia() {
+//        new MediaPlayer(sound).play();
+//    }
     @Override
     public void move(long delta) {
         super.move(delta);
