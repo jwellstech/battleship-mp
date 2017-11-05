@@ -94,5 +94,10 @@
             <Image url="@img/grunge_overlay.png" />
          </image>
       </ImageView>
+      <Text id="gameOver" fx:id="gameOver" fill="WHITE" layoutX="497.0" layoutY="173.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GAME OVER" textAlignment="CENTER">
+         <font>
+            <Font size="50.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

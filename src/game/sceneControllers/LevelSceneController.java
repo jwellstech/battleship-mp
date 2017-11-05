@@ -1,12 +1,14 @@
 package game.sceneControllers;
 
 import game.Game;
+import game.Settings;
 import javafx.animation.FadeTransition;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
@@ -45,6 +47,15 @@ public class LevelSceneController {
 
     @FXML
     private ImageView dotMatrix;
+
+    @FXML
+    private ImageView torpedoIndicator;
+
+    @FXML
+    private ImageView pingIndicator;
+
+    @FXML
+    private Text gameOver;
 
     @FXML
     void pauseGame(ActionEvent event) {
@@ -97,13 +108,30 @@ public class LevelSceneController {
         ft.play();
     }
 
-    //TODO dots
-    //- Dots move opposite direction of ship
-    //- Dots are infinite
-    //dots are 35 pixels apart
+    public void torpedoRefresh() {
+        FadeTransition ft = new FadeTransition(Duration.seconds(0.5), torpedoIndicator);
+        ft.setFromValue(1);
+        ft.setToValue(0);
+        ft.setCycleCount((int) Settings.SUBMARINE_FIRE_COOLDOWN / 500);
+        ft.setAutoReverse(true);
+        ft.play();
+    }
+
+    public void sonarRefresh() {
+        FadeTransition ft = new FadeTransition(Duration.seconds(0.5), pingIndicator);
+        ft.setFromValue(1);
+        ft.setToValue(0);
+        ft.setCycleCount((int) Settings.SUBMARINE_PING_COOLDOWN / 500);
+        ft.setAutoReverse(true);
+        ft.play();
+    }
+
     public void moveDots(float xVel, float yVel) {
         dotMatrix.setX((dotMatrix.getX() - xVel) % 35);
         dotMatrix.setY((dotMatrix.getY() + yVel) % 35);
     }
 
+    public void death() {
+        gameOver.setOpacity(1);
+    }
 }

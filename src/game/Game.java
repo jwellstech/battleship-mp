@@ -95,11 +95,13 @@ public class Game extends Application {
                             levelState.getPlayerSub().ping(SingletonsCreator.getOrCreateLevelFactoryMethod().getLevelObjects());
                             levelSceneController.sonarFind(levelState.getPlayerSub().getFoundOctants());
                             levelState.getPlayerSub().resetFoundOctants();
+                            levelSceneController.sonarRefresh();
                         }
                         break;
                     case F:
                         if(levelState.getPlayerSub().getTorpedoCoolDownTimer() == 0){
                             levelState.getPlayerSub().fire();
+                            levelSceneController.torpedoRefresh();
                         }
                 }
                 double rotate = - Math.toDegrees(levelState.getPlayerSub().getDirection()) + 90;
@@ -124,6 +126,10 @@ public class Game extends Application {
             public void handle(long now) {
                 if(primaryStage.getScene() == LevelScene) {
                     composer.update(now);
+                    if (!SingletonsCreator.getOrCreateLevelFactoryMethod().getSubmarines().contains(levelState.getPlayerSub())) {
+                        levelSceneController.death();
+
+                    }
                 }
 
             }

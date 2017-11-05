@@ -45,14 +45,16 @@ public class Submarine extends LevelObject {
         level.registerLevelObject(this);
 
         System.out.println("test3");
-        initListener();
+//        initListener();
 
         System.out.println("test4");
     }
-    public void initListener() {
-        listener = SingletonsCreator.getOrCreateJOALSoundObjectFactoryMethod();
-        listener.setListenerPos(getX()-1, getY());
-    }
+
+//    public void initListener() {
+//        listener = SingletonsCreator.getOrCreateJOALSoundObjectFactoryMethod();
+//        listener.setListenerPos(getX()-1, getY());
+//    }
+
     public void fire() {
         Torpedo torpedo = new Torpedo(getX(), getY());
         torpedo.setDirection(getDirection());
@@ -60,24 +62,31 @@ public class Submarine extends LevelObject {
         setTorpedoCoolDownTimer(Settings.SUBMARINE_FIRE_COOLDOWN);
 
     }
+
     public float getPingCoolDownTimer() {
         return pingCoolDownTimer;
     }
+
     public void setPingCoolDownTimer(float newVal) {
-        torpedoCoolDownTimer = newVal;
+        pingCoolDownTimer = newVal;
     }
+
     public float getTorpedoCoolDownTimer() {
         return torpedoCoolDownTimer;
     }
+
     public void setTorpedoCoolDownTimer(float newVal) {
         torpedoCoolDownTimer = newVal;
     }
+
     public float getAcceleration(long delta) {
         return acceleration / 10/** delta*/;
     }
+
     public float getDeceleration(long delta) {
         return deceleration / 10/** delta*/;
     }
+
     @Override
     public void update(long delta) {
         if(accelerate) {
@@ -106,6 +115,7 @@ public class Submarine extends LevelObject {
 //        System.out.println("Player pos: " + getX() + ", " + getY() + ", " + getDirection());
         super.update(delta);
     }
+
     public void setAccelerate(boolean newVal) {
         accelerate = newVal;
     }
@@ -124,12 +134,14 @@ public class Submarine extends LevelObject {
             }
             //System.out.println("Octants: " + foundOctants);
         }
-        listener.load(sound_source, false);
-        listener.play(sound_source);
+//        listener.load(sound_source, false);
+//        listener.play(sound_source);
     }
+
     public boolean[] getFoundOctants() {
         return foundOctants;
     }
+
     public void anglePingedAt(float angle) {
         if(angle < 0) {
             angle = Math.abs(angle);
@@ -139,25 +151,29 @@ public class Submarine extends LevelObject {
             foundOctants[((int)((angle - (angle % (Math.PI/4))) / (Math.PI/4)))%8] = true;
         }
     }
+
     public void resetFoundOctants() {
         for(int i = 0; i < foundOctants.length; i++) {
             foundOctants[i] = false;
         }
     }
+
     public void playMedia() {
         new MediaPlayer(sound).play();
     }
+
     @Override
     public void move(long delta) {
         super.move(delta);
-        listener.setListenerPos(getX(), getY());
-        listener.setPos(sound_source, getX() - 1, 0, getY());
+//        listener.setListenerPos(getX(), getY());
+//        listener.setPos(sound_source, getX() - 1, 0, getY());
     }
+
     @Override
     public void rotate(float degrees) {
         setDirection((float)((getDirection() + (float)Math.toRadians(degrees)) % (2*Math.PI)));
         //TODO: make consistent with direction of the submarine
-        listener.turnListener((int)degrees);
+//        listener.turnListener((int)degrees);
     }
 
 }
