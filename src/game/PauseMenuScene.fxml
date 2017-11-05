@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.sceneControllers.PauseMenuSceneController">
+   <children>
+      <Text layoutX="273.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PAUSED" />
+      <Button fx:id="resumeButton" layoutX="244.0" layoutY="169.0" mnemonicParsing="false" onAction="#resumeGame" text="Resume game" />
+      <Button fx:id="exitButton" layoutX="252.0" layoutY="243.0" mnemonicParsing="false" onAction="#exitGame" text="Main Menu" />
+   </children>
+</AnchorPane>

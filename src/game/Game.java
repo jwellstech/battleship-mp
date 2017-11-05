@@ -65,15 +65,15 @@ public class Game extends Application {
 //        primaryStage.setScene(new Scene(root, 300, 250));
 //        primaryStage.show();
 
-        Parent rt = FXMLLoader.load(getClass().getResource("scenes.StartMenuScreen.fxml"));
+        Parent rt = FXMLLoader.load(getClass().getResource("StartMenuScene.fxml"));
         StartMenu = new Scene(rt, 900, 600);
-        rt = FXMLLoader.load(getClass().getResource("scenes.PauseMenuScene.fxml"));
+        rt = FXMLLoader.load(getClass().getResource("PauseMenuScene.fxml"));
         PauseMenu = new Scene(rt, 900, 600);
-        rt = FXMLLoader.load(getClass().getResource("scenes.LevelScene.fxml"));
+        rt = FXMLLoader.load(getClass().getResource("LevelScene.fxml"));
         LevelScene = new Scene(rt, 900, 600);
 
         StateComposer composer = SingletonsCreator.getOrCreateStateComposerFactoryMethod();
-        primaryStage.setScene(composer.getActiveState().scene);
+        primaryStage.setScene(StartMenu);
         primaryStage.show();
         AnimationTimer timer = new AnimationTimer() {
             @Override
