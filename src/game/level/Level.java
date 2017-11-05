@@ -112,27 +112,28 @@ public class Level {
     }
     public void explode(Mine mine) {
         for(int i = 0; i < submarines.size(); i++) {
-            if(checkCollisionInRadius((AABoundingRect)submarines.get(i).getBoundingShape(), mine)) {
+//            if(checkCollisionInRadius((AABoundingRect)submarines.get(i).getBoundingShape(), mine)) {
+            if(mine.checkCollisionInRadius((AABoundingRect)submarines.get(i).getBoundingShape(), mine.getExplosionRadius())) {
                 submarines.remove(i);
                 i--;
             }
         }
     }
-    public boolean checkCollisionInRadius(AABoundingRect rect, Mine mine) {
-        float mineX = mine.getX() + ((AABoundingRect)mine.getBoundingShape()).getWidth()/2;
-        float mineY = mine.getX() + ((AABoundingRect)mine.getBoundingShape()).getWidth()/2;
-        if(Math.hypot(rect.getX() - mineX, rect.getY() - mineY ) <= mine.getExplosionRadius()) {
-            return true;
-        }
-        if(Math.hypot(rect.getX() + rect.getWidth() - mineX, rect.getY() - mineY ) <= mine.getExplosionRadius()) {
-            return true;
-        }
-        if(Math.hypot(rect.getX() - mineX, rect.getY() + rect.getHeight() - mineY ) <= mine.getExplosionRadius()) {
-            return true;
-        }
-        if(Math.hypot(rect.getX() + rect.getWidth() - mineX, rect.getY() + rect.getHeight() - mineY ) <= mine.getExplosionRadius()) {
-            return true;
-        }
-        return false;
-    }
+//    public boolean checkCollisionInRadius(AABoundingRect rect, Mine mine) {
+//        float mineX = mine.getX() + ((AABoundingRect)mine.getBoundingShape()).getWidth()/2;
+//        float mineY = mine.getX() + ((AABoundingRect)mine.getBoundingShape()).getWidth()/2;
+//        if(Math.hypot(rect.getX() - mineX, rect.getY() - mineY ) <= mine.getExplosionRadius()) {
+//            return true;
+//        }
+//        if(Math.hypot(rect.getX() + rect.getWidth() - mineX, rect.getY() - mineY ) <= mine.getExplosionRadius()) {
+//            return true;
+//        }
+//        if(Math.hypot(rect.getX() - mineX, rect.getY() + rect.getHeight() - mineY ) <= mine.getExplosionRadius()) {
+//            return true;
+//        }
+//        if(Math.hypot(rect.getX() + rect.getWidth() - mineX, rect.getY() + rect.getHeight() - mineY ) <= mine.getExplosionRadius()) {
+//            return true;
+//        }
+//        return false;
+//    }
 }

@@ -81,4 +81,21 @@ public abstract class LevelObject {
     public void update(long delta) {
         move(delta);
     }
+    public boolean checkCollisionInRadius(AABoundingRect rect, float radius) {
+        float loX = getX() + ((AABoundingRect)getBoundingShape()).getWidth()/2;
+        float loY = getY() + ((AABoundingRect)getBoundingShape()).getHeight()/2;
+        if(Math.hypot(rect.getX() - loX, rect.getY() - loY ) <= radius) {
+            return true;
+        }
+        if(Math.hypot(rect.getX() + rect.getWidth() - loX, rect.getY() - loY ) <= radius) {
+            return true;
+        }
+        if(Math.hypot(rect.getX() - loX, rect.getY() + rect.getHeight() - loY ) <= radius) {
+            return true;
+        }
+        if(Math.hypot(rect.getX() + rect.getWidth() - loX, rect.getY() + rect.getHeight() - loY ) <= radius) {
+            return true;
+        }
+        return false;
+    }
 }

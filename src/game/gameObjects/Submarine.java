@@ -77,10 +77,9 @@ public class Submarine extends LevelObject {
         float x = getX() + (((AABoundingRect) getBoundingShape()).getWidth() / 2);
         float y = getY() + (((AABoundingRect) getBoundingShape()).getHeight() / 2);
 
-        //TODO: the "50" in the if statement should be a variable in Settings
+
         for (int i = 0; i < objects.size(); i++) {
-            if (Math.hypot(x-objects.get(i).getX(), y-objects.get(i).getY()) <= 50) {
-                //found
+            if(checkCollisionInRadius((AABoundingRect)objects.get(i).getBoundingShape(), Settings.PING_RADIUS)) {
                 System.out.println("Found something!");
             }
         }
