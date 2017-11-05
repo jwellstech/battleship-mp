@@ -1,5 +1,6 @@
 package game.level;
 
+import game.Settings;
 import game.physics.AABoundingRect;
 import game.physics.BoundingShape;
 
@@ -58,7 +59,17 @@ public abstract class LevelObject {
     }
     //rotate by some number of degrees
     public void rotate(float degrees) {
-        setDirection(getDirection() + (float)Math.toRadians(degrees));
+        setDirection((float)((getDirection() + (float)Math.toRadians(degrees)) % (2*Math.PI)));
+    }
+    public void doRotate(int leftOrRight) {
+        switch (leftOrRight) {
+            case (1):
+                rotate(Settings.ROTATION_SPEED);
+                break;
+            case (-1):
+                rotate(-1*Settings.ROTATION_SPEED);
+                break;
+        }
     }
     public int getDamage() {
         return damage;

@@ -29,6 +29,12 @@ public class LevelState extends State {
                     case UP:
                         playerSub.setAccelerate(true);
                         break;
+                    case LEFT:
+                        playerSub.doRotate(1);
+                        break;
+                    case RIGHT:
+                        playerSub.doRotate(-1);
+                        break;
                 }
             }
         });
