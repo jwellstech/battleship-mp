@@ -2,6 +2,7 @@ package game;
 
 import game.gameObjects.Submarine;
 import game.level.Level;
+import game.sceneControllers.LevelSceneController;
 import game.state.LevelState;
 import game.state.StateComposer;
 
@@ -10,6 +11,7 @@ public class SingletonsCreator {
     static LevelState levelState;
     static Level level;
     static StateComposer composer;
+//    static LevelSceneController levelSceneController;
 
     public static Submarine getOrCreatePlayerSubmarineFactoryMethod() {
         if(playerSubmarine == null) {
