@@ -6,6 +6,8 @@ public class Settings {
     public static final float WINDOW_HEIGHT = 600;
     public static final float WINDOW_WIDTH = 900;
 
+    //levelobject settings
+    public static final float ROTATION_SPEED = 1;
     //submarine settings
     public static final float SUBMARINE_HEIGHT  = 10;
     public static final float SUBMARINE_WIDTH   = 10;
