@@ -24,47 +24,47 @@
             <Image url="@img/vignette.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="720.0" fitWidth="1280.0" opacity="0.35" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="720.0" fitWidth="1280.0" opacity="0.7" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/main.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="sector8" fitHeight="720.0" fitWidth="1280.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="sector3" fitHeight="720.0" fitWidth="1280.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/sector_8.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="sector7" fitHeight="720.0" fitWidth="1280.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="sector4" fitHeight="720.0" fitWidth="1280.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/sector_7.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="sector6" fitHeight="720.0" fitWidth="1280.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="sector5" fitHeight="720.0" fitWidth="1280.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/sector_6.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="sector5" fitHeight="720.0" fitWidth="1280.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="sector6" fitHeight="720.0" fitWidth="1280.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/sector_5.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="sector4" fitHeight="720.0" fitWidth="1280.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="sector7" fitHeight="720.0" fitWidth="1280.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/sector_4.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="sector3" fitHeight="720.0" fitWidth="1280.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="sector8" fitHeight="720.0" fitWidth="1280.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/sector_3.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="sector2" fitHeight="720.0" fitWidth="1280.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="sector1" fitHeight="720.0" fitWidth="1280.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/sector_2.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="sector1" fitHeight="720.0" fitWidth="1280.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="sector2" fitHeight="720.0" fitWidth="1280.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/sector_1.png" />
          </image>
