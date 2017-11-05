@@ -7,9 +7,9 @@ import game.level.Level;
 
 public class StateComposer {
     State activeState;
+    private static  Level       level       = SingletonsCreator.getOrCreateLevelFactoryMethod();
     private static  LevelState  levelState  = SingletonsCreator.getOrCreateLevelStateFactoryMethod();
 
-    private static  Level       level       = SingletonsCreator.getOrCreateLevelFactoryMethod();
     private         boolean     running     = true;
     long time;
 

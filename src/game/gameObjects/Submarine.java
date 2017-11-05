@@ -4,6 +4,7 @@ import game.Settings;
 import game.SingletonsCreator;
 import game.level.Level;
 import game.level.LevelObject;
+import game.physics.AABoundingRect;
 
 public class Submarine extends LevelObject {
     private static Level level  = SingletonsCreator.getOrCreateLevelFactoryMethod();
@@ -13,6 +14,8 @@ public class Submarine extends LevelObject {
     private static float acceleration  = Settings.SUBMARINE_ACCELERATION;
     private static float deceleration  = Settings.SUBMARINE_DECELERATION;
     private static boolean accelerate = false;
+    private static float coolDown = 0;
+
 
     public Submarine(float initX, float initY) {
         super(initX, initY, height, width);
@@ -22,7 +25,15 @@ public class Submarine extends LevelObject {
         //TODO: generate torpedo and fire it
         Torpedo torpedo = new Torpedo(getX(), getY());
         torpedo.setDirection(getDirection());
+        torpedo.setLauncher(this);
+        setCooldown(Settings.SUBMARINE_COOLDOWN);
 
+    }
+    public float getCooldown() {
+        return coolDown;
+    }
+    public void setCooldown(float newVal) {
+        coolDown = newVal;
     }
     public float getAcceleration(long delta) {
         return acceleration / 10/** delta*/;
@@ -47,6 +58,10 @@ public class Submarine extends LevelObject {
             if(getVelocity() < 0) {
                 setVelocity(0);
             }
+        }
+        if(coolDown > 0) {
+            setCooldown(getCooldown() - 20);
+            System.out.println(getCooldown());
         }
 
 //        System.out.println("Player pos: " + getX() + ", " + getY() + ", " + getDirection());

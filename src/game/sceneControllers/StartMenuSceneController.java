@@ -20,8 +20,7 @@ public class StartMenuSceneController {
     @FXML
     void startGame(ActionEvent event) {
         Stage startStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-        SingletonsCreator.resetLevelComponents();
+//        SingletonsCreator.resetLevelComponents();
         startStage.setScene(Game.LevelScene);
         startStage.show();
     }

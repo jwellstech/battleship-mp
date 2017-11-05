@@ -1,5 +1,6 @@
 package game;
 
+import game.gameObjects.Mine;
 import game.gameObjects.Submarine;
 import game.level.Level;
 import game.sceneControllers.LevelSceneController;
@@ -32,6 +33,7 @@ public class SingletonsCreator {
     public static Level getOrCreateLevelFactoryMethod() {
         if(level == null) {
             level = new Level();
+            Mine.generateMineField(Settings.LEVEL_RADIUS, Settings.LEVEL_MINE_DENSITY);
         }
         return level;
     }
@@ -41,15 +43,12 @@ public class SingletonsCreator {
         }
         return composer;
     }
-    public static void resetLevelComponents() {
-        level = null;
-        playerSubmarine = null;
-        levelState = null;
-        composer = null;
+//    public static void resetLevelComponents() {
+//        level = null;
+//        playerSubmarine = null;
+//        levelState = null;
+//        composer = null;
 //        getOrCreateLevelStateFactoryMethod();
-//        getOrCreateLevelFactoryMethod();
-//        getOrCreatePlayerSubmarineFactoryMethod();
-//        getOrCreateStateComposerFactoryMethod();
-    }
+//    }
 
 }

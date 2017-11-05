@@ -18,6 +18,14 @@ public class Mine extends LevelObject {
     public float getExplosionRadius() {
         return Settings.EXPLOSION_RADIUS;
     }
-
+    public static void generateMineField(int radius, int density) {
+        for(int i = 0; i < density; i++) {
+            double u = Math.random();
+            double v = Math.random();
+            double w = radius * Math.sqrt(u);
+            double t = 2 * Math.PI * v;
+            new Mine((float) (w * Math.cos(t)), (float)(w * Math.sin(t)));
+        }
+    }
 
 }

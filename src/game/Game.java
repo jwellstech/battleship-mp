@@ -74,13 +74,15 @@ public class Game extends Application {
         StartMenu = new Scene(rt, 1280, 720);
         rt = FXMLLoader.load(getClass().getResource("PauseMenuScene.fxml"));
         PauseMenu = new Scene(rt, 1280, 720);
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("LevelScene.fxml"));
         rt = loader.load();
         levelSceneController = loader.getController();
         LevelScene = new Scene(rt, 1280, 720);
         LevelState levelState = SingletonsCreator.getOrCreateLevelStateFactoryMethod();
         levelState.setScene(LevelScene);
-        LevelScene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+
+        levelState.getScene().setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
                 switch(event.getCode()) {
@@ -98,6 +100,11 @@ public class Game extends Application {
 //                        Stage levelStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                         primaryStage.setScene(Game.PauseMenu);
 //                        primaryStage.show();
+                        break;
+                    case F:
+                        if(levelState.getPlayerSub().getCooldown() == 0){
+                            levelState.getPlayerSub().fire();
+                        }
                 }
                 double rotate = - Math.toDegrees(levelState.getPlayerSub().getDirection()) + 90;
                 levelSceneController.playerSubImage.setRotate(rotate);

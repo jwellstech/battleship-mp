@@ -1,5 +1,6 @@
 package game.level;
 
+import game.Settings;
 import game.gameObjects.Mine;
 import game.gameObjects.Submarine;
 import game.gameObjects.Torpedo;
@@ -9,18 +10,28 @@ import game.physics.BoundingShape;
 import java.util.ArrayList;
 
 public class Level {
-    private int levelRadius;
-    private ArrayList<Submarine> submarines = new ArrayList<>();
-    private ArrayList<Torpedo> torpedoes = new ArrayList<>();
-    private ArrayList<Mine> mines = new ArrayList<>();
+    private ArrayList<Submarine> submarines;
+    private ArrayList<Torpedo> torpedoes;
+    private ArrayList<Mine> mines;
 
     public Level() {
-
+        submarines = new ArrayList<>();
+        torpedoes = new ArrayList<>();
+        mines = new ArrayList<>();
     }
+
+
+
     //TODO: consider revision
     public void registerLevelObject(LevelObject newObject) {
+        System.out.println(newObject.getClass() + ": (" + newObject.getX() + ", " + newObject.getY() + ")'");
         if(newObject instanceof Submarine) {
             submarines.add((Submarine) newObject);
+            for(Mine mine: getMines()) {
+                if(mine.getBoundingShape().checkCollision(newObject.getBoundingShape())) {
+                    mines.remove(mine);
+                }
+            }
         }
         if(newObject instanceof Torpedo) {
             torpedoes.add((Torpedo) newObject);
@@ -35,7 +46,6 @@ public class Level {
     public ArrayList<Torpedo> getTorpedoes() {
         return torpedoes;
     }
-
     public ArrayList<Mine> getMines() {
         return mines;
     }
@@ -45,7 +55,7 @@ public class Level {
         for(int i = 0; i < submarines.size(); i++) {
             int j = i+1;
             boolean cont = true;
-            while (j < submarines.size() && cont) {
+            while (cont && j < submarines.size()) {
                 if(submarines.get(i).getBoundingShape().checkCollision(submarines.get(j).getBoundingShape())) {
                     submarines.remove(j);
                     submarines.remove(i);
@@ -55,16 +65,18 @@ public class Level {
                 j++;
             }
             j = 0;
-            while(j < torpedoes.size() && cont) {
-                if(submarines.get(i).getBoundingShape().checkCollision(torpedoes.get(j).getBoundingShape())) {
+            while(cont && j < torpedoes.size()) {
+                if(submarines.get(i).getBoundingShape().checkCollision(torpedoes.get(j).getBoundingShape()) &&
+                        !submarines.get(i).getBoundingShape().checkCollision(torpedoes.get(j).getLauncher().getBoundingShape())) {
                     submarines.remove(i);
                     torpedoes.remove(j);
                     i--;
                     cont = false;
                 }
+                j++;
             }
             j = 0;
-            while(j < mines.size() && cont) {
+            while(cont && j < mines.size()) {
                 if(submarines.get(i).getBoundingShape().checkCollision(mines.get(j).getBoundingShape())) {
                     submarines.remove(i);
                     explode(mines.get(j));
@@ -72,12 +84,13 @@ public class Level {
                     i--;
                     cont = false;
                 }
+                j++;
             }
         }
         for(int i = 0; i < torpedoes.size(); i++) {
             int j = 0;
             boolean cont = true;
-            while(j < mines.size() && cont) {
+            while(cont && j < mines.size()) {
                 if(torpedoes.get(i).getBoundingShape().checkCollision(mines.get(j).getBoundingShape())) {
                     torpedoes.remove(i);
                     explode(mines.get(j));
@@ -85,11 +98,11 @@ public class Level {
                     i--;
                     cont = false;
                 }
+                j++;
             }
         }
     }
     public void explode(Mine mine) {
-        float radius = mine.getExplosionRadius();
         for(int i = 0; i < submarines.size(); i++) {
             if(checkCollisionInRadius((AABoundingRect)submarines.get(i).getBoundingShape(), mine)) {
                 submarines.remove(i);
