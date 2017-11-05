@@ -1,5 +1,6 @@
 package game;
 
+import game.sceneControllers.LevelSceneController;
 import game.state.StateComposer;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
@@ -64,6 +65,7 @@ public class Game extends Application {
 //        root.getChildren().add(btn);
 //        primaryStage.setScene(new Scene(root, 300, 250));
 //        primaryStage.show();
+        StateComposer composer = SingletonsCreator.getOrCreateStateComposerFactoryMethod();
 
         Parent rt = FXMLLoader.load(getClass().getResource("StartMenuScene.fxml"));
         StartMenu = new Scene(rt, 900, 600);
@@ -71,14 +73,27 @@ public class Game extends Application {
         PauseMenu = new Scene(rt, 900, 600);
         rt = FXMLLoader.load(getClass().getResource("LevelScene.fxml"));
         LevelScene = new Scene(rt, 900, 600);
+        LevelScene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                switch(event.getCode()) {
+                    case ESCAPE:
+//                       composer.setRunning(false);
+//                        Stage levelStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                        primaryStage.setScene(Game.PauseMenu);
+//                        primaryStage.show();
+                }
+            }
+        });
 
-        StateComposer composer = SingletonsCreator.getOrCreateStateComposerFactoryMethod();
         primaryStage.setScene(StartMenu);
         primaryStage.show();
         AnimationTimer timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
-                composer.update(now);
+                if(primaryStage.getScene() == LevelScene) {
+                    composer.update(now);
+                }
 
             }
         };

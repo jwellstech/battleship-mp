@@ -31,18 +31,21 @@ public class StateComposer {
     }
     public void update(long now) {
         long delta = (now-time)/1000000;
-        if(running) {
+//        if(running) {
             for(Submarine submarine: level.getSubmarines()) {
                 submarine.update(delta);
             }
             for(Torpedo torpedo: level.getTorpedoes()) {
                 torpedo.update(delta);
             }
-        }
+//        }
         level.checkCollision();
         time = now;
     }
     public State getActiveState() {
         return activeState;
+    }
+    public void setRunning(boolean newVal){
+        running = newVal;
     }
 }
