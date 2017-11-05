@@ -6,6 +6,8 @@ import game.level.Level;
 import game.level.LevelObject;
 import game.physics.AABoundingRect;
 
+import java.util.ArrayList;
+
 public class Submarine extends LevelObject {
     private static Level level  = SingletonsCreator.getOrCreateLevelFactoryMethod();
     private static float height = Settings.SUBMARINE_HEIGHT;
@@ -69,5 +71,18 @@ public class Submarine extends LevelObject {
     }
     public void setAccelerate(boolean newVal) {
         accelerate = newVal;
+    }
+
+    public void ping(ArrayList<LevelObject> objects) {
+        float x = getX() + (((AABoundingRect) getBoundingShape()).getWidth() / 2);
+        float y = getY() + (((AABoundingRect) getBoundingShape()).getHeight() / 2);
+
+        //TODO: the "50" in the if statement should be a variable in Settings
+        for (int i = 0; i < objects.size(); i++) {
+            if (Math.hypot(x-objects.get(i).getX(), y-objects.get(i).getY()) <= 50) {
+                //found
+                System.out.println("Found something!");
+            }
+        }
     }
 }

@@ -49,6 +49,14 @@ public class Level {
     public ArrayList<Mine> getMines() {
         return mines;
     }
+
+    public ArrayList<LevelObject> getLevelObjects() {
+        ArrayList<LevelObject> all = new ArrayList<>();
+        all.addAll(submarines);
+        all.addAll(torpedoes);
+        all.addAll(mines);
+        return all;
+    }
     public void checkCollision() {
         //TODO: handle collisions and kill the dead
         //might have errors on deletion

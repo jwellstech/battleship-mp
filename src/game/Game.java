@@ -1,5 +1,6 @@
 package game;
 
+import game.level.Level;
 import game.sceneControllers.LevelSceneController;
 import game.state.LevelState;
 import game.state.StateComposer;
@@ -82,7 +83,7 @@ public class Game extends Application {
         LevelState levelState = SingletonsCreator.getOrCreateLevelStateFactoryMethod();
         levelState.setScene(LevelScene);
 
-        levelState.getScene().setOnKeyPressed(new EventHandler<KeyEvent>() {
+        LevelScene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
                 switch(event.getCode()) {
@@ -96,10 +97,10 @@ public class Game extends Application {
                         levelState.getPlayerSub().doRotate(-1);
                         break;
                     case ESCAPE:
-//                       composer.setRunning(false);
-//                        Stage levelStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                         primaryStage.setScene(Game.PauseMenu);
-//                        primaryStage.show();
+                        break;
+                    case SPACE:
+                        levelState.getPlayerSub().ping(SingletonsCreator.getOrCreateLevelFactoryMethod().getLevelObjects());
                         break;
                     case F:
                         if(levelState.getPlayerSub().getCooldown() == 0){
