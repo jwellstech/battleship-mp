@@ -13,7 +13,8 @@ $(function() {
     
     var settings = {
         turnSpeed: 0.0002,
-        moveSpeed: 0.0005
+        moveSpeed: 0.0005,
+        mineCount: 30,
     }
     
     var keyListener = new window.keypress.Listener();
@@ -43,7 +44,20 @@ $(function() {
         moveMomentum:   0,
         turnMomentum:   0
     }
-
+    
+    mines = [];
+    
+    for(var i=0; i<settings.mineCount; i++) {
+        /*Places mines at a random distance away and at a random angle from 0,0*/
+        var distance = (Math.random()*2500)+800;
+        var angle = Math.random()*360;
+        
+        var mineX = Math.cos((angle-90)*Math.PI/180) * distance;
+        var mineY = Math.sin((angle-90)*Math.PI/180) * distance;
+        
+        mines.push({x: mineX, y:mineY});        
+    }
+    
     setInterval(update, 1)
     
     function update() {
@@ -105,8 +119,8 @@ $(function() {
         player.x = newX;
         player.y = newY;
         
-        $("#dotMatrix").css("background-position", (player.x*-1) + "px " + (player.y*-1) + "px");
-        $("#dotMatrixRed").css("background-position", (player.x*-1) + "px " + (player.y*-1) + "px");
+        $("#dotMatrix").css(    "background-position", (player.x*-1) + "px " + (player.y*-1) + "px");
+        $("#dotMatrixRed").css( "background-position", (player.x*-1) + "px " + (player.y*-1) + "px");
         $("#dotMatrixBlue").css("background-position", (player.x*-1) + "px " + (player.y*-1) + "px");
         
         /*UPDATE DEBUG INFO*/
