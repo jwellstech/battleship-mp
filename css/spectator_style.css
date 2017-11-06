@@ -1,0 +1,45 @@
+body {
+    background: #222222;
+}
+
+#mainWrap {
+    background: rgba(0, 0, 0, 0.12);
+    height: 700px;
+    width: 700px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -350px;
+    margin-top: -350px;
+    border-radius: 999px;
+}
+
+#playerIconWrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -10px;
+    height: 20px;
+    width: 20px;
+}
+
+#playerIcon {
+    position: absolute;
+    height: 6px;
+    width: 6px;
+    margin: 6px;
+    border: 1px solid #FF8000;
+    box-shadow: 0 0 10px 0 rgba(255, 128, 0, 0.3), inset 0 0 10px 0 rgba(255, 128, 0, 0.3);
+    transform: rotate(45deg);
+}
+
+#playerHeading {
+    position: absolute;
+    height: 4px;
+    width: 4px;
+    margin: 7px;
+    border: 1px solid #FF8000;
+    border-right: none;
+    border-bottom: none;
+    transform: translateY(-5px) rotate(45deg);
+}

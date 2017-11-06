@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>TORP | Game</title>
+        <link rel="stylesheet" type="text/css" href="../css/reset.css">
+        <link rel="stylesheet" type="text/css" href="../css/game_style.css">
+    </head>
+    <body>
+        <div id="gameWrap">
+            <div class="fillParent" id="dotMatrixRed"></div>
+            <div class="fillParent" id="dotMatrixBlue"></div>
+            <div class="fillParent" id="dotMatrix"></div>
+            <div class="fillParent" id="vignette"></div>
+            <div class="fillParent" id="main"></div>
+            <div                    id="subHeading"></div>
+            <div class="fillParent sectorMarker" id="sector1"></div>
+            <div class="fillParent sectorMarker" id="sector2"></div>
+            <div class="fillParent sectorMarker" id="sector3"></div>
+            <div class="fillParent sectorMarker" id="sector4"></div>
+            <div class="fillParent sectorMarker" id="sector5"></div>
+            <div class="fillParent sectorMarker" id="sector6"></div>
+            <div class="fillParent sectorMarker" id="sector7"></div>
+            <div class="fillParent sectorMarker" id="sector8"></div>
+            <div class="fillParent" id="overlay"></div>
+            <pre id="debugInfo">
+<p class="debug" id="playerX">player.x            = 0</p>
+<p class="debug" id="playerY">player.y            = 0</p>
+<p class="debug" id="playerDir">player.direction    = 0</p>
+<p class="debug" id="playerMM">player.moveMomentum = 0</p>
+<p class="debug" id="playerTM">player.turnMomentum = 0</p>
+            </pre>
+        </div>
+        <button id="openSpectator">Open Spectator View</button>
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../js/keypress.js"></script>
+    <script src="../js/game_script.js"></script>
+</html>

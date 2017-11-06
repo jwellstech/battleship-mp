@@ -1,0 +1,129 @@
+body {
+    background: black;
+}
+
+#gameWrap {
+    position: absolute;
+    width: 1280px;
+    height: 720px;
+    background: black;
+    left: 50%;
+    top: 50%;
+    margin-left: calc(1280px/-2);
+    margin-top: calc(720px/-2);
+    overflow: hidden;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+#openSpectator {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+#testButton {
+    position: absolute;
+    top: 10px;
+    left: 200px;
+}
+
+#debugInfo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.debug {
+    color: white;
+    position: relative;
+    z-index: 999;
+    font-family: monospace;
+    line-height: 0;
+}
+
+.fillParent {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+#dotMatrix, #dotMatrixRed, #dotMatrixBlue {
+    background-image: url(../img/dots.png);
+    background-size: 700px;
+}
+
+#dotMatrix {
+    opacity: 0.7;
+}
+
+#dotMatrixRed {
+    transform: scale(0.8);
+    opacity: 0.2;
+    filter: hue-rotate(-40deg);
+}
+
+#dotMatrixBlue {
+    transform: scale(0.9);
+    opacity: 0.4;
+    filter: hue-rotate(100deg);
+}
+
+#vignette {
+    background-image: url(../img/vignette.png);
+}
+
+#subHeading {
+    background-image: url(../img/sub.png);
+    height: 128px;
+    width: 128px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: calc(-64px);
+    margin-top: calc(-64px);
+}
+
+#main {
+    background-image: url(../img/main.png);
+    opacity: 0.35;
+}
+
+.sectorMarker {
+    display: none;
+}
+
+#sector1 {
+    background-image: url(../img/sector_1.png);
+}
+
+#sector2 {
+    background-image: url(../img/sector_2.png);
+}
+
+#sector3 {
+    background-image: url(../img/sector_3.png);
+}
+
+#sector4 {
+    background-image: url(../img/sector_4.png);
+}
+
+#sector5 {
+    background-image: url(../img/sector_5.png);
+}
+
+#sector6 {
+    background-image: url(../img/sector_6.png);
+}
+
+#sector7 {
+    background-image: url(../img/sector_7.png);
+}
+
+#sector8 {
+    background-image: url(../img/sector_8.png);
+}
+
+#overlay {
+    background-image: url(../img/grunge_overlay.png);
+}
