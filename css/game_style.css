@@ -12,19 +12,19 @@ body {
     margin-left: calc(1280px/-2);
     margin-top: calc(720px/-2);
     overflow: hidden;
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0);
 }
 
-#openSpectator {
+#buttons {
     position: absolute;
-    top: 10px;
-    left: 10px;
-}
-
-#testButton {
-    position: absolute;
-    top: 10px;
-    left: 200px;
+    width: 1280px;
+    left: 50%;
+    top: 50%;
+    margin-left: calc(1280px/-2);
+    margin-top: calc(720px/2);
+    text-align: center;
+    padding: 5px 0;
+    
 }
 
 #debugInfo {

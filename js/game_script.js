@@ -58,6 +58,33 @@ $(function() {
         mines.push({x: mineX, y:mineY});        
     }
     
+    function illuminateSector(sectorID) {
+        for(var i=0;i<2;i++) {
+            $("#sector" + sectorID).fadeIn(Math.random()*50).delay(Math.random()*100).fadeOut(Math.random()*50).delay(Math.random()*100);
+        }
+        $("#sector" + sectorID).fadeIn(Math.random()*50).delay(2000).fadeOut(5000);
+    }
+    
+    function distanceBetween(pointA,pointB) {
+        return Math.sqrt( Math.pow((pointA.x-pointB.x),2) + Math.pow((pointA.y-pointB.y),2) );
+    }
+    
+    minesInRange = [];
+    
+    $("#testButton1").click(function() {
+        minesInRange = [];
+        for(var i=0;i<mines.length;i++) {
+            if( distanceBetween(player,mines[i]) <= 1250 ) {
+                minesInRange.push(i);
+            }
+        }
+        spectatorWindow.animatePing();
+    })
+    
+    function showSector(angle) {
+        
+    }
+    
     setInterval(update, 1)
     
     function update() {

@@ -68,3 +68,30 @@ body {
     left: 50%;
     box-shadow: 0 0 10px 0 rgba(127, 183, 0, 0.3), inset 0 0 10px 0 rgba(127, 183, 0, 0.3);
 }
+
+.pingRadius {
+    height: 0px;
+    width: 0px;
+    background: rgba(0, 255, 216, 0.03);
+    /box-shadow: 0 0 0 1px rgba(0, 255, 216, 0.3);
+    border-radius: 999px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 0px;
+    z-index: -1;
+    animation: spread 1s linear forwards;
+}
+
+@keyframes spread {
+    from {
+        height: 0px;
+        width: 0px;
+        margin: 0px;
+    }
+    to {
+        height: 250px;
+        width: 250px;
+        margin: -125px;
+    }
+}
