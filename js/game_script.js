@@ -1,8 +1,9 @@
-$(function() {
     
     $("#openSpectator").click(function() {
         spectatorWindow = window.open("spectator.html");
     })
+    
+    var subIcon
     
     var key = {
         up:     false,
@@ -84,10 +85,42 @@ $(function() {
     function showSector(angle) {
         
     }
+
+    var canvas = new createjs.Stage("mainCanvas");
+
+    var subIcon = new createjs.Bitmap("../img/sub.png");
+        subIcon.regX =  64;
+        subIcon.regY =  64;
+        subIcon.x =     1280/2;
+        subIcon.y =     720/2;
     
+    var dots = new createjs.Bitmap("../img/dots.png");
+        dots.regX = 500;
+        dots.regY = 500;
+        dots.x =    1280/2;
+        dots.y =    720/2;
+
+    var circles = new createjs.Bitmap("../img/main.png");
+        circles.alpha = 0.35;
+
+    var vignette = new createjs.Bitmap("../img/vignette.png");
+    var overlay = new createjs.Bitmap("../img/grunge_overlay.png");
+
+    canvas.addChild(dots);
+    canvas.addChild(subIcon);
+    canvas.addChild(vignette);
+    canvas.addChild(circles);
+    canvas.addChild(overlay);
+
     setInterval(update, 1)
     
     function update() {
+        
+        
+        subIcon.rotation = player.direction;
+        dots.x = 1280/2 + (player.x%100 * -1);
+        dots.y = 720/2 + (player.y%100 * -1);
+        canvas.update();
         
         /*KEY PRESS EVENTS*/
         if(key.right) {
@@ -138,7 +171,7 @@ $(function() {
         /*VISUAL UI UPDATE and GENERAL LOGIC*/
         player.direction = player.direction + player.turnMomentum*settings.turnSpeed;
         
-        $("#subHeading").css("transform", "rotate(" + player.direction + "deg)");
+        //$("#subIcon").css("transform", "rotate(" + player.direction + "deg)");
         
         var newX = Math.cos((player.direction-90)*Math.PI/180) * player.moveMomentum*settings.moveSpeed + player.x;
         var newY = Math.sin((player.direction-90)*Math.PI/180) * player.moveMomentum*settings.moveSpeed + player.y;
@@ -146,9 +179,9 @@ $(function() {
         player.x = newX;
         player.y = newY;
         
-        $("#dotMatrix").css(    "background-position", (player.x*-1) + "px " + (player.y*-1) + "px");
-        $("#dotMatrixRed").css( "background-position", (player.x*-1) + "px " + (player.y*-1) + "px");
-        $("#dotMatrixBlue").css("background-position", (player.x*-1) + "px " + (player.y*-1) + "px");
+        //$("#dotMatrix").css(    "background-position", (player.x*-1) + "px " + (player.y*-1) + "px");
+        //$("#dotMatrixRed").css( "background-position", (player.x*-1) + "px " + (player.y*-1) + "px");
+        //$("#dotMatrixBlue").css("background-position", (player.x*-1) + "px " + (player.y*-1) + "px");
         
         /*UPDATE DEBUG INFO*/
         $("#playerX").text(     "player.x            = " + player.x);
@@ -160,4 +193,3 @@ $(function() {
     
     
     
-})

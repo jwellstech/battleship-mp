@@ -8,21 +8,8 @@
     </head>
     <body>
         <div id="gameWrap">
-            <div class="fillParent" id="dotMatrixRed"></div>
-            <div class="fillParent" id="dotMatrixBlue"></div>
-            <div class="fillParent" id="dotMatrix"></div>
-            <div class="fillParent" id="vignette"></div>
-            <div class="fillParent" id="main"></div>
-            <div                    id="subHeading"></div>
-            <div class="fillParent sectorMarker" id="sector1"></div>
-            <div class="fillParent sectorMarker" id="sector2"></div>
-            <div class="fillParent sectorMarker" id="sector3"></div>
-            <div class="fillParent sectorMarker" id="sector4"></div>
-            <div class="fillParent sectorMarker" id="sector5"></div>
-            <div class="fillParent sectorMarker" id="sector6"></div>
-            <div class="fillParent sectorMarker" id="sector7"></div>
-            <div class="fillParent sectorMarker" id="sector8"></div>
-            <div class="fillParent" id="overlay"></div>
+            <canvas id="mainCanvas" height="720" width="1280">
+            </canvas>
             <pre id="debugInfo">
 <p class="debug" id="playerX">player.x            = 0</p>
 <p class="debug" id="playerY">player.y            = 0</p>
@@ -38,7 +25,9 @@
             <button id="testButton3">Test 3</button>
         </div>
     </body>
+    <script src="https://cdn.jsdelivr.net/npm/createjs@1.0.1/builds/1.0.0/createjs.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="../js/keypress.js"></script>
     <script src="../js/game_script.js"></script>
+    <script src="../js/canvas.js"></script>
 </html>
